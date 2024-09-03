@@ -1,15 +1,13 @@
 ﻿Main:
-bool IsDigit = false;
 
-while (!IsDigit)
-{
+
     Birinci:
     Console.Write("Birinci eded: ");
     string FirstNum = Console.ReadLine();
 
     if (decimal.TryParse(FirstNum, out decimal birinci_eded))
     {
-        IsDigit = true;
+      
         Console.Clear();
 
     Ikinci:
@@ -162,7 +160,6 @@ while (!IsDigit)
 
     }
     
-}
 
 
 
