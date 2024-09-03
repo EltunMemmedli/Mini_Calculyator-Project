@@ -1,46 +1,168 @@
-﻿// Birinci eded
-Main:
+﻿Main:
+bool IsDigit = false;
 
-Console.Write("Birinci ededi daxile edin: ");
-decimal birinci_eded = decimal.Parse(Console.ReadLine());
-
-// Ikinci eded
-Console.Write("Ikinci ededi daxil edin: ");
-decimal ikinci_eded = decimal.Parse(Console.ReadLine());
-
-// Emeli daxil edin
-Console.Write("Hansi emel daxil edeceksiniz: ");
-string emel = Console.ReadLine();
-
-//Toplayir
-if (emel == "+")
+while (!IsDigit)
 {
-    Console.WriteLine(Plus(birinci_eded, ikinci_eded));
-    goto Main;
+    Birinci:
+    Console.Write("Birinci eded: ");
+    string FirstNum = Console.ReadLine();
 
+    if (decimal.TryParse(FirstNum, out decimal birinci_eded))
+    {
+        IsDigit = true;
+        Console.Clear();
+
+    Ikinci:
+        Console.WriteLine($"Birnici eded: {birinci_eded}");
+        Console.Write("Ikinci eded: ");
+        string SecondNum = Console.ReadLine();
+
+        if (decimal.TryParse(SecondNum, out decimal ikinci_eded))
+        {
+           
+
+            Console.Clear();
+
+            Console.WriteLine($"Birinci ede: {birinci_eded},\n" +
+                              $"Ikinci eded: {ikinci_eded}");
+
+            emel:
+            Console.Write("Hansi emel daxil edeceksiniz: ");
+            string emel = Console.ReadLine();
+
+
+            if (emel == "+")
+            {
+                Console.WriteLine(Plus(birinci_eded, ikinci_eded));
+
+                bool Kecmek = false;
+
+                while (!Kecmek)
+                {
+                    Console.WriteLine("Ilk pencereye qayitmaq ucun 'f' duymesine basin");
+                    char Kec = Console.ReadLine()[0];
+
+                    if (Kec == 'f')
+                    {
+                        Kecmek = true;
+                        Console.Clear();
+                        goto Main;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Duzgun duymeni basdiginizdan emin olun!");
+                    }
+
+                }
+
+
+
+            }
+            else if (emel == "-")
+            {
+                Console.WriteLine(Minus(birinci_eded, ikinci_eded));
+
+                bool Kecmek = false;
+
+                while (!Kecmek)
+                {
+                    Console.WriteLine("Ilk pencereye qayitmaq ucun 'f' duymesine basin");
+                    char Kec = Console.ReadLine()[0];
+
+                    if (Kec == 'f')
+                    {
+                        Kecmek = true;
+                        Console.Clear();
+                        goto Main;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Duzgun duymeni basdiginizdan emin olun!");
+                    }
+
+                }
+            }
+            else if (emel == "*")
+            {
+                Console.WriteLine(Hasil(birinci_eded, ikinci_eded));
+                bool Kecmek = false;
+
+                while (!Kecmek)
+                {
+                    Console.WriteLine("Ilk pencereye qayitmaq ucun 'f' duymesine basin");
+                    char Kec = Console.ReadLine()[0];
+
+                    if (Kec == 'f')
+                    {
+                        Kecmek = true;
+                        Console.Clear();
+                        goto Main;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Duzgun duymeni basdiginizdan emin olun!");
+                    }
+
+                }
+
+            }
+            else if (emel == "/")
+            {
+                Console.WriteLine(Dividing(birinci_eded, ikinci_eded));
+                bool Kecmek = false;
+
+                while (!Kecmek)
+                {
+                    Console.WriteLine("Ilk pencereye qayitmaq ucun 'f' duymesine basin");
+                    char Kec = Console.ReadLine()[0];
+
+                    if (Kec == 'f')
+                    {
+                        Kecmek = true;
+                        Console.Clear();
+                        goto Main;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Duzgun duymeni basdiginizdan emin olun!");
+                    }
+
+                }
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine($"Birinci ede: {birinci_eded},\n" +
+                                  $"Ikinci eded: {ikinci_eded}");
+                Console.WriteLine("Duzgun emel daxil edin!");
+                goto emel;
+
+            }
+
+        }
+        else
+        {
+            Console.Clear();
+            Console.WriteLine("Ikinci ededi duzgun daxil edin!");
+            goto Ikinci;
+
+        }
+
+
+    }
+    else
+    {
+        Console.Clear();
+        Console.WriteLine("Birinci ededi duzgun daxil edin!");
+        goto Birinci;
+
+    }
+    
 }
-else if (emel == "-")
-{
-    Console.WriteLine(Minus(birinci_eded, ikinci_eded));
-    goto Main;
-
-}
-else if (emel == "*")//Vurma
-{
-    Console.WriteLine(Hasil(birinci_eded, ikinci_eded));
-    goto Main;
-
-}
-else if (emel == "/")//Bolme
-{
-    Console.WriteLine(Dividing(birinci_eded, ikinci_eded));
-    goto Main;
-}
-else
-{
-    goto Main;
-
-}
 
 
 
@@ -52,25 +174,24 @@ else
 
 
 
-// Toplama emeli
 decimal Plus(decimal num_1, decimal num_2)
 {
     return num_1 + num_2;
 }
 
-// Cixma emeli
+
 decimal Minus(decimal num_1, decimal num_2)
 {
     return num_1 - num_2;
 }
 
-// Vurma emeli
+
 decimal Hasil(decimal num_1, decimal num_2)
 {
     return num_1 * num_2;
 }
 
-// Bolme emeli
+
 decimal Dividing(decimal num_1, decimal num_2)
 {
     return num_1 / num_2;
