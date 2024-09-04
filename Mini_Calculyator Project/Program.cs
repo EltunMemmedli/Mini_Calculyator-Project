@@ -134,9 +134,12 @@
             else
             {
                 Console.Clear();
+                Console.WriteLine("Duzgun emel daxil edin!");
+                Thread.Sleep(2000);
+                Console.Clear();
                 Console.WriteLine($"Birinci ede: {birinci_eded},\n" +
                                   $"Ikinci eded: {ikinci_eded}");
-                Console.WriteLine("Duzgun emel daxil edin!");
+        
                 goto emel;
 
             }
@@ -146,6 +149,8 @@
         {
             Console.Clear();
             Console.WriteLine("Ikinci ededi duzgun daxil edin!");
+            Thread.Sleep(2000);
+            Console.Clear();
             goto Ikinci;
 
         }
@@ -156,6 +161,8 @@
     {
         Console.Clear();
         Console.WriteLine("Birinci ededi duzgun daxil edin!");
+        Thread.Sleep(2000);
+        Console.Clear();
         goto Birinci;
 
     }
